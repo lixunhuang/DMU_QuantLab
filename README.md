@@ -60,12 +60,23 @@ pip install -r requirements.txt
 TS_TOKEN = 'PASTE_YOUR_TOKEN_HERE'
 ```
 
-### 3\. 数据初始化
+### 3. 手动下载数据 (Manual Download)
 
-首次运行回测时，系统会自动检测并下载过去 10 年的全市场数据（约需 10-20 分钟）。
+1.  在项目根目录下创建一个名为 `data` 的文件夹：
+    ```
+    mkdir data
+    ```
 
+2.  访问 Hugging Face 数据集仓库页面：
+    [https://huggingface.co/datasets/cky7777777/DMU_QuantLab/tree/main](https://huggingface.co/datasets/cky7777777/DMU_QuantLab/tree/main)
+
+3.  在页面中找到 `stock_data.db` 文件，点击下载图标（或 "download" 按钮）。
+
+4.  将下载好的 `stock_data.db` 文件放入项目的 `data/` 目录中。
+
+### 4. 运行回测(run)
 ```
-# 启动回测 (自动触发数据下载)
+# 启动回测
 python run_backtest.py
 ```
 
@@ -105,24 +116,27 @@ python src/tools/stock_valuator.py
 本项目为**私有协作仓库**，请严格遵守以下 Git 流程：
 
 1.  **禁止直接推送到 `main` 分支**
+    * `main` 分支受保护，仅用于发布稳定版本和公共基础库。
 
-      * `main` 分支受保护，仅用于发布稳定版本。
+2.  **开发流程 (Personal Branch Workflow)**
+    * **个人实验室**：每个人维护一个以自己名字命名的分支（例如: `cky`），这是你的独立工作区。
+      ```bash
+      # 1. 保持你的基准是最新的 (获取 main 的更新)
+      git checkout main
+      git pull origin main
+      
+      # 2. 切换到你的分支
+      git checkout cky
+      
+      # 3. (强烈建议) 定期把 main 的更新同步给还没合并的你，防止脱节
+      git merge main
+      ```
+    * **自由开发**：你可以在自己的分支上随意提交 (`commit`) 和推送 (`push`)，无需审核，作为云端备份。
 
-2.  **开发流程 (Feature Branch Workflow)**
-
-      * **新建分支**：每次开发新功能或修改代码前，请从 `main` 切出一个新分支。
-        ```bash
-        git checkout main
-        git pull origin main
-        git checkout -b feature-你的功能名 (例如: feature-add-lstm)
-        ```
-      * **提交代码**：在你的分支上进行修改和 Commit。
-      * **推送分支**：`git push origin feature-你的功能名`
-
-3.  **代码合并 (Pull Request)**
-
-      * 开发完成后，在 GitHub 页面发起 **Pull Request (PR)**。
-      * **Code Review**：必须经过管理员（Repository Owner）的代码审查（Approve）后，才能合并入 `main`。
+3.  **代码贡献 (Pull Request - Optional)**
+    * **仅当**你认为你的新功能（如新策略、新工具）对团队其他人也有用，且代码已测试稳定时，才发起合并请求。
+    * 在 GitHub 页面发起 **Pull Request (PR)**：从 `cky` -> `main`。
+    * **Code Review**：经过管理员审查通过后，你的成果将成为团队的公共资产。
 
 ## ⚠️ 免责声明
 
