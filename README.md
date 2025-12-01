@@ -138,6 +138,9 @@ python src/tools/stock_valuator.py
     * 在 GitHub 页面发起 **Pull Request (PR)**：从 `cky` -> `main`。
     * **Code Review**：经过管理员审查通过后，你的成果将成为团队的公共资产。
 
+4.  **push代码时碰到冲突时怎么办**
+    * 查看README_conflict.md
+
 ## ⚠️ 免责声明
 
 本项目仅供计算机金融（FinTech）学习与研究使用。回测结果基于历史数据，**不代表未来表现**。代码中包含的策略不构成任何投资建议。实盘交易风险自负。
