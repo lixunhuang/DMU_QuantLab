@@ -2,7 +2,7 @@ import os
 
 # ================= 数据配置 =================
 # 请替换为你自己的 Tushare Token
-TS_TOKEN = 'b5cc3f6790f5e24bff773802cab07b66fb5cb5b95565ecb57cdaf698'
+TS_TOKEN = ''
 
 # 数据库路径 (自动定位到项目根目录下的 data 文件夹)
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
